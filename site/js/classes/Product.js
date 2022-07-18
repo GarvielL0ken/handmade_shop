@@ -30,7 +30,7 @@ export class Product {
 		html = "<div>";
 		html += `<img class='product-img-full' src='${Product.imagesPath}/${this.imageName_}' alt=${this.alt_}><br>`;
 		html += `<span>${this.name_}</span><br>`;
-		html += `<span>${this.caption_}</span>`
+		html += `<span>${this.caption_}</span>`;
 		html += "</div>";
 		return (html);
 	}
@@ -38,10 +38,10 @@ export class Product {
 	printThumbnail() {
 		/*string*/	var html;
 
-		html = "<div class='product-thumbnail-container'>"
-		html += "<a href='./view-product.html?title=" + this.name_ + "'>"
-		html += "<img class='product-thumbnail-img' src='./img/content/GarvielLoken.jpg'><br>"
-		html += this.name_;
+		html = "<div class='product-thumbnail-container'>";
+		html += `<a href='./view-product.html?${title=this.name_}>`;
+		html += `<img class='product-thumbnail-img' src='${Product.imagesPath}/${this.imageName_}' alt='${this.alt_}'><br>`;
+		html += `<span>${this.name_}<span>`;
 		html += "</div>";
 		return (html);
 	}
