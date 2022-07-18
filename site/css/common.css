@@ -1,0 +1,86 @@
+:root {
+	--primary: rgb(32, 32, 32);
+	--button-to-top: url('../img/layout/img-btn-to-top.png');
+	--button-to-top-hover: url('../img/layout/img-btn-to-top-hover.png');
+}
+
+#btn-back-to-top {
+	position: fixed;
+	bottom: 1vh;
+	right: 1vw;
+	width: 65px;
+	height: 65px;
+	background-size: 65px 65px;
+	background-image: var(--button-to-top);
+}
+
+#btn-back-to-top:hover {
+	background-image: var(--button-to-top-hover);
+	transform: scale(1.02)
+}
+
+.bootstrap-col {
+	background-color: black;
+	margin: 5px 0px;
+}
+
+.nav-pills .nav-link {
+	background-color: rgb(50, 50, 50);
+	height: 7.5vh;
+	margin: 0px 3%;
+}
+
+.nav-pills .nav-link:hover {
+	background-color: rgb(125, 130, 125);
+	color: rgb(50, 50, 50);
+	transform: scale(1.02);
+}
+
+.nav-pills .nav-link.active {
+	background-color: rgb(195, 200, 195);
+	color: rgb(50, 50, 50);
+}
+
+.product-thumbnail-container {
+	height: 100%;
+	padding: 124px 0px 0px 0px;
+	width: 100%;
+}
+
+.product-thumbnail-img {
+	height: 100px;
+	object-fit: contain;
+	width: 100px;
+}
+
+body {
+	background-color: rgb(21, 21, 21);
+	color: rgb(220, 230, 220);
+	text-align: center;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+nav {
+	background-color: rgb(32, 32, 32);
+	color:rgb(220, 230, 220);
+	height: 15vh;
+}
+
+nav a {
+	color: rgb(220, 230, 220);
+}
+
+nav img {
+	width: 10vh;
+	height: 10vh;
+	margin: 1vh;
+}
+
+@media (max-width: 569px) {
+	nav {
+		height: 30vh;
+	}
+}
