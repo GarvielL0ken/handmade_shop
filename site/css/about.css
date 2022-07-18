@@ -1,0 +1,11 @@
+img {
+	border-radius: 100%;
+	width: 400px;
+	height: 400px;
+	object-fit: cover;
+	margin-bottom: 80px;
+}
+
+ul {
+	list-style: none;
+}
