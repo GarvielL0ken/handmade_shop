@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" href="./css/common.css">
+		<link rel="stylesheet" href="./css/home.css">
+		<link rel="icon" type="image/png" href="./img/content/LunaWolvesBanner.png">
+		<title>Cythonian Steel: Home</title>
+	</head>
+	<body>
+		<div id="application">
+			<nav class="navbar nav-fill nav-pills sticky-top">
+				<a class="navbar-brand">
+					<img src="./img/layout/brand-image.png">
+				</a>
+				<a class="nav-link active">Home</a>
+				<a class="nav-link" href="./store.html">Store</a>
+				<a class="nav-link" href="./contact.html">Contact Us</a>
+				<a class="nav-link" href="./about.html">About</a>
+			</nav>
+			<div class="wrapper">
+				<nav id="sidebar">
+					<a class="nav-link" href="#featured">Featured</a>
+					<a class="nav-link" href="#new">New</a>
+				</nav>
+				<div id="content">
+					<div id="banner top">
+						<img src="./img/layout/banner-image.png">
+					</div>
+					<div class="container">
+						<div class="row" >
+							<a class="anchor" id="featured"></a>
+							<div class="col-md-12 section-header"><h2>Featured</h2></div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 bootstrap-col" v-for="product in featuredProducts" v-html="product.printThumbnail()"></div>
+						</div>
+						<div class="row">
+							<a class="anchor" id="new"></a>
+							<div class="col-md-12 section-header"><h2>New</h2></div>
+						</div>
+						<div class="row">
+							<div class="col-md-6 bootstrap-col" v-for="product in newProducts" v-html="product.printThumbnail()"></div>
+						</div>
+					</div>
+				</div>
+				<a href="#top">
+					<div id="btn-back-to-top">
+					</div>
+				</a>
+			</div>
+		</div>
+		<script src="./js/vue.js"></script>
+		<script src="./js/home.js" type="module"></script>
+	</body>
+</html>
