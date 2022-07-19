@@ -8,10 +8,11 @@ export class Product {
 		return (product);
 	}
 
-	constructor(verbose, name, imageName='', alt='', caption='') {
+	constructor(verbose, name, categories='', imageName='', alt='', caption='') {
 		this.name_ = name;
 		
-		this.caption_ = caption
+		this.caption_ = caption;
+		this.categories_ = new Set(categories.split(";"));
 		this.imageName_ = imageName;
 		this.alt_ = alt;
 		this.verbose_ = verbose;
@@ -22,6 +23,13 @@ export class Product {
 
 	nameEquals(name) {
 		return (this.name_ === name);
+	}
+
+	isInCategory(strCategory='') {
+		console.log(this.categories_);
+		console.log(strCategory);
+		console.log(this.categories_.has(strCategory))
+		return (this.categories_.has(strCategory))
 	}
 
 	printFullView() {

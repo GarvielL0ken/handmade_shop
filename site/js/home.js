@@ -5,18 +5,24 @@ var application = new Vue({
 	el : "#application",
 	data : {
 		test: "test",
-		featuredProducts : products,
-		newProducts : [
-			new Product(true, "amet"),
-			new Product(true, "consectetur"),
-			new Product(true, "adipiscing"),
-			new Product(true, "elit")
-		]
+		featuredProducts : "",
+		newProducts : "",
+		strCategory : ""
 	},
 	methods : {
+		isInCategory(product) {
+			console.log(this.strCategory);
+			return product.isInCategory(this.strCategory);
+		},
 		printHTML() {
 			return ("<div class='col-sm-4'>Test</div>");
 		}
+	},
+	mounted() {
+		this.strCategory = "Featured";
+		this.featuredProducts = products.filter(this.isInCategory);
+		this.strCategory = "New";
+		this.newProducts = products.filter(this.isInCategory);
 	}
 	
 })
