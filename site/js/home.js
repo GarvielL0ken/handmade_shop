@@ -1,15 +1,11 @@
 import { Product } from "./classes/Product.js";
+import { products } from "./data/data.js";
 
 var application = new Vue({
 	el : "#application",
 	data : {
 		test: "test",
-		featuredProducts : [
-			new Product(true, "Lorem"),
-			new Product(true, "ipsum"),
-			new Product(true, "dolor"),
-			new Product(true, "sit")
-		],
+		featuredProducts : products,
 		newProducts : [
 			new Product(true, "amet"),
 			new Product(true, "consectetur"),
