@@ -39,7 +39,7 @@ export class Product {
 		/*string*/	var html;
 
 		html = "<div class='product-thumbnail-container'>";
-		html += `<a href='./view-product.html?title=${this.name_}>`;
+		html += `<a href='./view-product.html?title=${this.name_}'>`;
 		html += `<img class='product-thumbnail-img' src='${Product.imagesPath}/${this.imageName_}' alt='${this.alt_}'><br>`;
 		html += `<span>${this.name_}<span>`;
 		html += "</div>";
