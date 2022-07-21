@@ -21,7 +21,10 @@
 				<a class="nav-link">Contact Us</a>
 				<a class="nav-link" href="./about.html">About</a>
 			</nav>
-			<div v-html="printProduct()">
+			<div class="container">
+				<button @click="addToCart(product)">Add to Cart</button>
+				<div v-html="printProduct()">
+				</div>
 			</div>
 		</div>
 		<script src="./js/vue.js"></script>
