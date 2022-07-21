@@ -1,5 +1,12 @@
 :root {
-	--primary: rgb(32, 32, 32);
+	--primary: rgb(32, 34, 32);
+	--backgrond-primary: rgb(21, 23, 21);
+	--text-primary: rgb(220, 230, 220);
+	
+	--secondary: rgb(50, 50, 50);
+	--highlight-high: rgb(195, 210, 195);
+	--highlight-low: rgb(125, 130, 125);
+	--containers: rgb(32, 36, 32);
 	--button-to-top: url('../img/layout/img-btn-to-top.png');
 	--button-to-top-hover: url('../img/layout/img-btn-to-top-hover.png');
 }
@@ -20,7 +27,7 @@
 }
 
 .bootstrap-row {
-	background-color: rgb(50, 50, 50);
+	background-color: var(--secondary);
 	border-radius: 10px
 }
 
@@ -30,29 +37,33 @@
 }
 
 .nav-pills .nav-link {
-	background-color: rgb(50, 50, 50);
+	background-color: var(--secondary);
 	height: 7.5vh;
 	margin: 0px 3%;
 }
 
 .nav-pills .nav-link:hover {
-	background-color: rgb(125, 130, 125);
-	color: rgb(50, 50, 50);
+	background-color: var(--highlight-low);
+	color: var(--primary);
 	transform: scale(1.02);
 }
 
 .nav-pills .nav-link.active {
-	background-color: rgb(195, 200, 195);
-	color: rgb(50, 50, 50);
+	background-color: var(--highlight-high);
+	color: var(--primary);
 }
 
 .product-thumbnail-container {
-	background-color: black;
+	background-color: var(--containers);
 	border-radius: 3px;
 	height: 100%;
 	padding: 5px 0px 0px 0px;
 	margin: auto;
 	width: 98%;
+}
+
+.product-thumbnail-container:hover .product-thumbnail-img {
+	transform: scale(1.1);
 }
 
 .img-wrapper {
@@ -70,13 +81,9 @@
 	max-height: 200px;
 }
 
-.product-thumbnail-img:hover{
-	transform: scale(1.1);
-}
-
 body {
-	background-color: rgb(21, 21, 21);
-	color: rgb(220, 230, 220);
+	background-color: var(--backgrond-primary);
+	color: var(--text-primary);
 	text-align: center;
 }
 
@@ -85,13 +92,17 @@ html {
 }
 
 nav {
-	background-color: rgb(32, 32, 32);
-	color:rgb(220, 230, 220);
+	background-color: var(--primary);
+	color:var(--text-primary);
 	height: 15vh;
 }
 
-nav a {
-	color: rgb(220, 230, 220);
+nav a, .product-thumbnail-container a {
+	color: var(--text-primary);
+}
+
+nav a:hover, .product-thumbnail-container a:hover {
+	color: var(--highlight-low);
 }
 
 nav img {
