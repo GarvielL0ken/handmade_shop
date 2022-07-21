@@ -10,15 +10,35 @@
 		<title>Cythonian Steel: Store</title>
 	</head>
 	<body>
-		<nav class="navbar nav-fill nav-pills sticky-top">
-			<a class="navbar-brand" href="./home.html">
-				<img src="./img/content/LunaWolvesBanner.png">
-			</a>
-			<a class="nav-link" href="./home.html">Home</a>
-			<a class="nav-link active">Store</a>
-			<a class="nav-link" href="./contact.html">Contact Us</a>
-			<a class="nav-link" href="./about.html">About</a>
-		</nav>
+		<div id="application">
+			<nav class="navbar nav-fill nav-pills sticky-top">
+				<a class="navbar-brand" href="./home.html">
+					<img src="./img/content/LunaWolvesBanner.png">
+				</a>
+				<a class="nav-link" href="./home.html">Home</a>
+				<a class="nav-link active">Store</a>
+				<a class="nav-link" href="./contact.html">Contact Us</a>
+				<a class="nav-link" href="./about.html">About</a>
+				<a id="nav-link-cart" class="nav-link" href="./view-cart.html">Cart: {{ cart.size }}</a>
+			</nav>
+			<div id="content">
+				<div class="container">
+					<div class="row bootstrap-row">
+						<div class="col-md-6 bootstrap-col" v-for="product in displayedProducts">
+							<div class='product-thumbnail-container'>
+								<div v-html="product.printThumbnail()"></div>
+								<button @click="addToCart(product)">Add to Cart</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+				<a href="#top">
+					<div id="btn-back-to-top">
+					</div>
+				</a>
+			</div>
+		</div>
 		<script src="./js/vue.js"></script>
 		<script src="./js/store.js" type="module"></script>
 	</body>
