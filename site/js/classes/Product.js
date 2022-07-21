@@ -8,6 +8,26 @@ export class Product {
 		return (product);
 	}
 
+	static parseProduct(product) {
+		var newProduct;
+		
+		var name;
+		var categories;
+		var imageName;
+		var alt;
+		var caption;
+
+		name = product.name_;
+		categories = (product.categories_[0] ? product.categories_ : "");
+		imageName = product.imageName_;
+		alt = product.alt_;
+		caption = product.caption_;
+		
+		newProduct = new Product(false, name, categories, imageName, alt, caption);
+
+		return newProduct;
+	}
+
 	constructor(verbose, name, categories='', imageName='', alt='', caption='') {
 		this.name_ = name;
 		
@@ -46,14 +66,12 @@ export class Product {
 	printThumbnail() {
 		/*string*/	var html;
 
-		html = "<div class='product-thumbnail-container'>";
-		html += `<a href='./view-product.html?title=${this.name_}'>`;
+		html = `<a href='./view-product.html?title=${this.name_}'>`;
 		html += `<div class='img-wrapper'>`
 		html += `<img class='product-thumbnail-img' src='${Product.imagesPath}/${this.imageName_}' alt='${this.alt_}'>`;
 		html += `</div><br>`
 		html += `<span>${this.name_}</span>`;
 		html += "</a>"
-		html += "</div>";
 		return (html);
 	}
 
