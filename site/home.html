@@ -35,14 +35,22 @@
 							<div class="col-md-12 section-header"><h2>Featured</h2></div>
 						</div>
 						<div class="row">
-							<div class="col-md-6 bootstrap-col" v-for="product in featuredProducts" v-html="product.printThumbnail()"></div>
+							<div class="col-md-6 bootstrap-col" v-for="product in featuredProducts">
+								<div class='product-thumbnail-container'>
+									<div v-html="product.printThumbnail()"></div>
+								</div>
+							</div>
 						</div>
 						<div class="row">
 							<a class="anchor" id="new"></a>
 							<div class="col-md-12 section-header"><h2>New</h2></div>
 						</div>
 						<div class="row">
-							<div class="col-md-6 bootstrap-col" v-for="product in newProducts" v-html="product.printThumbnail()"></div>
+							<div class="col-md-6 bootstrap-col" v-for="product in newProducts">
+								<div class='product-thumbnail-container'>
+									<div v-html="product.printThumbnail()"></div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
