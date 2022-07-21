@@ -19,9 +19,14 @@
 	transform: scale(1.02)
 }
 
+.bootstrap-row {
+	background-color: rgb(50, 50, 50);
+	border-radius: 10px
+}
+
 .bootstrap-col {
-	background-color: black;
 	margin: 5px 0px;
+	padding: 0px;
 }
 
 .nav-pills .nav-link {
@@ -42,14 +47,18 @@
 }
 
 .product-thumbnail-container {
+	background-color: black;
+	border-radius: 3px;
 	height: 100%;
 	padding: 5px 0px 0px 0px;
-	width: 100%;
+	margin: auto;
+	width: 98%;
 }
 
 .img-wrapper {
 	display: inline-block;
 	overflow: hidden;
+	border-radius: 5px;
 }
 
 .product-thumbnail-img {
