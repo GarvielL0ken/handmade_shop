@@ -14,6 +14,9 @@ var application = new Vue({
 				return (this.selectedProduct.printFullView());
 			else
 				return ('<h1>Error: Product Not Found</h1>');
+		},
+		addToCart(product) {
+			this.cart.addProduct(product);
 		}
 	},
 	mounted() {
