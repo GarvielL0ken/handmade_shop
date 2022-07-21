@@ -1,4 +1,4 @@
-export function getURLParameter(url, parameter) {
+function getURLParameter(url, parameter) {
 	var	url;
 	var	regex;
 	var	value;
@@ -15,3 +15,5 @@ export function getURLParameter(url, parameter) {
 		return (value[1]);
 	return ('');
 }
+
+export {getURLParameter}
