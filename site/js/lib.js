@@ -36,24 +36,11 @@ class Currency {
 	 *@param	{Currency}	toAdd;
 	 */
 	add(toAdd) {
-		var	/*int*/	overflow;
-
-		overflow = 0;
 		this.$low += toAdd.$low;
-
-		if (Currency.lowMax <= this.$low) {
-			//Get the high part of $low and set overflow to it
-			//Store original low in overflow
-			overflow = this.$low;
-			//Set low to the a value between 0 and low max
-			this.$low = this.$low % Currency.lowMax;
-			//Round down low to a multiple of a high value
-			overflow -= this.$low;
-			//Reduce the overflow from a low value to a high value
-			overflow /= Currency.lowMax;
-		}
-
-		this.$high += toAdd.$high + overflow;
+		this.$high += toAdd.$high;
+		
+		this.$high += (Currency.lowMax <= this.$low);
+		this.$low -= ((Currency.lowMax < $this.$low) * Currency.lowMax);
 
 		return this;
 	}
