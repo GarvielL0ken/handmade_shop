@@ -1,4 +1,5 @@
 import { products } from "./data/data.js"
+import { Cart } from "./classes/Cart.js";
 import { Product } from "./classes/Product.js";
 import { getURLParameter } from "./lib.js"
 
@@ -6,7 +7,8 @@ var application = new Vue({
 	el : "#application",
 	data : {
 		title : '',
-		products : products
+		products : products,
+		cart : new Cart(true)
 	},
 	methods : {
 		printProduct() {
