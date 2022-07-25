@@ -24,8 +24,14 @@
 				<div class="row bootstrap-row" v-for="product in cart.products">
 					<div class="col-md-12 bootstrap-col">
 						<div class='product-thumbnail-container'>
-							<div v-html="product.printCart()"></div>
+							<div v-html="product.printCartView()"></div>
+							<button @click="removeFromCart(product)">Remove From Cart</button>
 						</div>
+					</div>
+				</div>
+				<div class="row bootstrap-row">
+					<div class="col-md-12">
+						<span>Total: {{cart.total}}</span>
 					</div>
 				</div>
 			</div>
