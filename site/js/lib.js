@@ -16,4 +16,94 @@ function getURLParameter(url, parameter) {
 	return ('');
 }
 
-export {getURLParameter}
+class Currency {
+	static	/*bool*/	verbose=	1;
+
+	static	/*int*/		base=		10;
+	static	/*int*/		lowMax=		100;
+
+	constructor(fltValue) {
+		/*PROTECTED*/
+		this.$high = 0;
+		this.$low = 0;
+
+		if (Currency.verbose)
+			console.log(`CONSTRUCTOR: setValue(${fltValue})`);
+		this.setValue(fltValue);
+	}
+
+	/*
+	 *@param	{Currency}	toAdd;
+	 */
+	add(toAdd) {
+		var	/*int*/	overflow;
+
+		overflow = 0;
+		this.$low += toAdd.$low;
+
+		if (Currency.lowMax <= this.$low) {
+			//Get the high part of $low and set overflow to it
+			//Store original low in overflow
+			overflow = this.$low;
+			//Set low to the a value between 0 and low max
+			this.$low = this.$low % Currency.lowMax;
+			//Round down low to a multiple of a high value
+			overflow -= this.$low;
+			//Reduce the overflow from a low value to a high value
+			overflow /= Currency.lowMax;
+		}
+
+		this.$high += toAdd.$high + overflow;
+
+		return this;
+	}
+
+	subtract(toSubtract) {
+		
+		/*if (this.$low < toSubtract.$low) {
+			this.$low += Currency.lowMax;
+			this.$high -= 1;
+		}*/
+
+		console.log(`${(this.$low < toSubtract.$low) * 1}`);
+		//Branchless to improve performance hopefully (needs to be tested)
+		//Brackets are equivalent to the above statement that is commented out
+		this.$high = this.$high - ((this.$low < toSubtract.$low));
+		this.$low = this.$low + ((this.$low < toSubtract.$low) * Currency.lowMax);
+		
+		this.$low -= toSubtract.$low;
+		this.$high -= toSubtract.$high;
+
+		return this;
+	}
+
+	setValue(fltValue) {
+		var	/*array*/	arrValue;
+
+		/*PROTECTED*/
+		this.$high = 0;
+		this.$low = 0;
+
+		arrValue = String(fltValue).split('.');
+
+		console.log(`fltValue: ${fltValue}`);
+		console.log(`arrValue: ${arrValue}`);
+		this.$high = parseInt(arrValue[0]);
+		if (arrValue[1])
+			this.$low = parseInt(arrValue[1]);
+
+		console.log(`high: ${this.$high}`);
+		console.log(`low: ${this.$low}`);
+	}
+
+	setValueObject(objValue) {
+		this.$high = parseInt(objValue.$high);
+		this.$low = parseInt(objValue.$low);
+	}
+
+	toString() {
+		return `${this.$high}.${this.$low}`;
+	}
+}
+
+export {getURLParameter, Currency}
