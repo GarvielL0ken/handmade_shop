@@ -40,21 +40,14 @@ class Currency {
 		this.$high += toAdd.$high;
 		
 		this.$high += (Currency.lowMax <= this.$low);
-		this.$low -= ((Currency.lowMax < $this.$low) * Currency.lowMax);
+		this.$low -= ((Currency.lowMax < this.$low) * Currency.lowMax);
 
 		return this;
 	}
 
 	subtract(toSubtract) {
-		
-		/*if (this.$low < toSubtract.$low) {
-			this.$low += Currency.lowMax;
-			this.$high -= 1;
-		}*/
 
-		console.log(`${(this.$low < toSubtract.$low) * 1}`);
 		//Branchless to improve performance hopefully (needs to be tested)
-		//Brackets are equivalent to the above statement that is commented out
 		this.$high = this.$high - ((this.$low < toSubtract.$low));
 		this.$low = this.$low + ((this.$low < toSubtract.$low) * Currency.lowMax);
 		
