@@ -19,9 +19,14 @@
 				<a class="nav-link" href="./store.html">Store</a>
 				<a class="nav-link" href="./contact.html">Contact Us</a>
 				<a class="nav-link" href="./about.html">About</a>
-				<a id="nav-link-cart" class="nav-link" href="./view-cart.html">Cart: {{ cart.size }}</a>
+				<a id="nav-link-cart" class="" href="./view-cart.html">
+					<div id="btn-cart">
+						<div :class="cart.activeClass">{{cart.getSize()}}</div>
+					</div>
+				</a>
 			</nav>
 			<div class="wrapper">
+				
 				<nav id="sidebar">
 					<a class="nav-link" href="#featured">Featured</a>
 					<a class="nav-link" href="#new">New</a>

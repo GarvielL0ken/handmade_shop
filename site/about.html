@@ -10,32 +10,47 @@
 		<title>Cythonian Steel: About</title>
 	</head>
 	<body>
-		<nav class="navbar nav-fill nav-pills sticky-top">
-			<a class="navbar-brand" href="./home.html">
-				<img src="./img/content/LunaWolvesBanner.png">
-			</a>
-			<a class="nav-link" href="./home.html">Home</a>
-			<a class="nav-link" href="./store.html">Store</a>
-			<a class="nav-link" href="./contact.html">Contact Us</a>
-			<a class="nav-link active">About</a>
-		</nav>
-		
-		<h2>The Team:</h2>
-		<ul>
-			<li>
-				<h3>Jed Sarkis : Garviel Loken</h3>
-				<img src="./img/content/GarvielLoken.jpg">
-			</li>
-			<li>
-				<h3>Imaginary Friend No. 1 : Tarrik Torgaddon</h3>
-				<img src="./img/content/TarikTorgaddon.jpg">
-			</li>
-			<li>
-				<h3>Coach Kevin : Kevin Bacon</h3>
-				<img src="./img/content/KevinBacon.jpg">
-			</li>
-		</ul>
+		<div id="application">
+			<nav class="navbar nav-fill nav-pills sticky-top">
+				<a class="navbar-brand" href="./home.html">
+					<img src="./img/content/LunaWolvesBanner.png">
+				</a>
+				<a class="nav-link" href="./home.html">Home</a>
+				<a class="nav-link" href="./store.html">Store</a>
+				<a class="nav-link" href="./contact.html">Contact Us</a>
+				<a class="nav-link active">About</a>
+				<a id="nav-link-cart" class="" href="./view-cart.html">
+					<div id="btn-cart">
+						<div :class="cart.activeClass">{{cart.getSize()}}
+							
+						</div>
+					</div>
+				</a>
+			</nav>
+			
+			<div>
+				<h2>The Team:</h2>
+				<ul>
+					<li>
+						<h3>Jed Sarkis : Garviel Loken</h3>
+						<img src="./img/content/GarvielLoken.jpg">
+					</li>
+					<li>
+						<h3>Imaginary Friend No. 1 : Tarrik Torgaddon</h3>
+						<img src="./img/content/TarikTorgaddon.jpg">
+					</li>
+					<li>
+						<h3>Coach Kevin : Kevin Bacon</h3>
+						<img src="./img/content/KevinBacon.jpg">
+					</li>
+				</ul>
+				<a href="#top">
+					<div id="btn-back-to-top">
+					</div>
+				</a>
+			</div>
+		</div>
 		<script src="./js/vue.js"></script>
-		<script src="js/about.js"></script>
+		<script src="js/about.js" type="module"></script>
 	</body>
 </html>
