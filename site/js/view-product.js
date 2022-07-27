@@ -1,14 +1,16 @@
 import { products } from "./data/data.js"
 import { Cart } from "./classes/Cart.js";
 import { Product } from "./classes/Product.js";
-import { getURLParameter } from "./lib.js"
+import { getURLParameter } from "./lib.js";
+import { NavigationBar } from "./classes/NavigationBar.js";
 
 var application = new Vue({
 	el : "#application",
 	data : {
 		title : '',
 		products : products,
-		cart : new Cart(true)
+		cart : new Cart(true),
+		navBar : new NavigationBar("")
 	},
 	methods : {
 		printProduct() {
@@ -24,5 +26,7 @@ var application = new Vue({
 	mounted() {
 		this.title = getURLParameter(window.location.href, "title");
 		this.selectedProduct = Product.getProductByName(this.products, this.title);
+
+		this.navBar.cart = this.cart;
 	}
 })

@@ -1,5 +1,5 @@
 import { Cart } from "./classes/Cart.js";
-import { Product } from "./classes/Product.js";
+import { NavigationBar } from "./classes/NavigationBar.js";
 import { products } from "./data/data.js";
 
 var application = new Vue({
@@ -9,11 +9,11 @@ var application = new Vue({
 		featuredProducts : "",
 		newProducts : "",
 		strCategory : "",
-		cart : new Cart(true)
+		cart : new Cart(true),
+		navBar : new NavigationBar("Home")
 	},
 	methods : {
 		isInCategory(product) {
-			console.log(this.strCategory);
 			return product.isInCategory(this.strCategory);
 		},
 		printHTML() {
@@ -23,8 +23,11 @@ var application = new Vue({
 	mounted() {
 		this.strCategory = "Featured";
 		this.featuredProducts = products.filter(this.isInCategory);
+		
 		this.strCategory = "New";
 		this.newProducts = products.filter(this.isInCategory);
+		
+		this.navBar.cart = this.cart;
 	}
 	
 })

@@ -6,24 +6,12 @@
 		<link rel="stylesheet" href="./css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/common.css">
 		<link rel="stylesheet" href="css/store.css">
-		<link rel="icon" type="image/png" href="./img/content/LunaWolvesBanner.png">
+		<link rel="icon" type="image/png" href="./img/layout/brand-image.png">
 		<title>Cythonian Steel: Store</title>
 	</head>
 	<body>
 		<div id="application">
-			<nav class="navbar nav-fill nav-pills sticky-top">
-				<a class="navbar-brand" href="./home.html">
-					<img src="./img/content/LunaWolvesBanner.png">
-				</a>
-				<a class="nav-link" href="./home.html">Home</a>
-				<a class="nav-link active">Store</a>
-				<a class="nav-link" href="./contact.html">Contact Us</a>
-				<a class="nav-link" href="./about.html">About</a>
-				<a id="nav-link-cart" class="" href="./view-cart.html">
-					<div id="btn-cart">
-						<div :class="cart.activeClass">{{cart.getSize()}}</div>
-					</div>
-				</a>
+			<nav class="navbar nav-fill nav-pills sticky-top" v-html="navBar.toHTML()">
 			</nav>
 			<div id="content">
 				<div class="container">
