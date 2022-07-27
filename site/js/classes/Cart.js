@@ -2,8 +2,13 @@ import { Product } from "./Product.js";
 import { Currency } from "../lib.js";
 
 export class Cart {
-	static	/*string*/	localStorageKey = "cart";
 	static	/*bool*/	verbose = false;
+	
+	static	/*string*/	localStorageKey=	"cart";
+	static	/*string*/	defaultClass=		"div-items-in-cart";
+	static	/*string*/	overflowClass=		"div-items-in-cart overflow";
+	
+	static	/*int*/		maxIconDisplay=		100;
 
 	/*------------------------------CONSTRUCTOR-------------------------------/
 	 *Construct a default instance and attempt to load data from localStorage /
@@ -16,6 +21,7 @@ export class Cart {
 
 		/*PUBLIC*/
 		/*array*/	this.products = [];
+		/*string*/	this.activeClass = Cart.defaultClass;
 		/*float*/	this.total = new Currency(0.0);
 		/*int*/		this.size = 0;
 		
@@ -42,7 +48,7 @@ export class Cart {
 	loadProducts(objProducts) {
 		this.size = 0;
 		objProducts.forEach(product => {
-			this.addProduct(Product.parseProduct(product));
+			this.addProduct(Product.parseProduct(product), false);
 		});
 	}
 
@@ -53,7 +59,7 @@ export class Cart {
 	 */
 	/*-----------------------------------------------------------------------*/
 	save() {
-		console.log(JSON.stringify(this));
+		console.log("save: " + JSON.stringify(this));
 		localStorage.setItem(Cart.localStorageKey, JSON.stringify(this));
 	}
 
@@ -63,11 +69,12 @@ export class Cart {
 	 *@param	{Product}	product;
 	 */
 	/*-----------------------------------------------------------------------*/
-	addProduct(product) {
+	addProduct(product, boolSave=true) {
 		this.size += 1;
 		this.total.add(product.price);
 		this.products.push(product);
-		this.save();
+		if (boolSave)
+			this.save();
 	}
 
 	/*-----------------------------------------------------------------------*/
@@ -86,5 +93,15 @@ export class Cart {
 			return (product);
 		});
 		this.save();
+	}
+
+	getSize() {
+		if (this.size < Cart.maxIconDisplay) {
+			this.activeClass = Cart.defaultClass;
+			return this.size;
+		}
+
+		this.activeClass = Cart.overflowClass
+		return '99+';
 	}
 }
