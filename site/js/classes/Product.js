@@ -56,13 +56,13 @@ export class Product {
 	 *@param	{}	;                                                         /
 	 *                                                                        /
 	/*-----------------------------------------------------------------------*/
-	constructor(verbose, name, categories='', imageName='', alt='', caption='', price=0.0, id=null) {
+	constructor(name, categories='', imageName='', alt='', caption='', price=0.0, id=null) {
 		this.id_ = ++Product.productId;
 		
 		/*PRIVATE*/
-		/*bool*/	this.verbose_=		verbose;
+		/*bool*/	this.verbose_=		false;
 		
-		/*Set*/		this.categories_=	new Set(categories.split(";"));
+		/*Set*/		this.categories_=	null;
 		
 		/*String*/	this.alt_=			alt;
 		/*String*/	this.caption_=		caption;
@@ -71,6 +71,9 @@ export class Product {
 
 		/*PUBLIC*/
 		/*float*/	this.price=			new Currency(price);
+
+		if (categories)
+			this.categories_=	new Set(categories.split(";"));
 
 		if (this.verbose_)
 			console.log(this.toString("CONSTRUCTOR"));
