@@ -1,14 +1,22 @@
 :root {
-	--primary: rgb(32, 34, 32);
-	--backgrond-primary: rgb(21, 23, 21);
-	--text-primary: rgb(220, 230, 220);
+	--primary:				rgb(32, 34, 32);
+	--backgrond-primary:	rgb(21, 23, 21);
+	--text-primary:			rgb(220, 230, 220);
 	
-	--secondary: rgb(50, 50, 50);
-	--highlight-high: rgb(195, 210, 195);
-	--highlight-low: rgb(125, 130, 125);
-	--containers: rgb(32, 36, 32);
+	--secondary:			rgb(50, 50, 50);
+	--highlight-high:		rgb(195, 210, 195);
+	--highlight-low:		rgb(125, 130, 125);
+	--containers:			rgb(32, 36, 32);
+
+	--cart-background:		rgb(45, 75, 45);
+	--cart-inner:			rgb(240, 255, 240);
+
 	--button-to-top: url('../img/layout/img-btn-to-top.png');
 	--button-to-top-hover: url('../img/layout/img-btn-to-top-hover.png');
+
+	--img-cart: url('../img/layout/cart.png');
+
+	--div-items-in-cart-diameter: 25px;
 }
 
 #btn-back-to-top {
@@ -19,11 +27,45 @@
 	height: 65px;
 	background-size: 65px 65px;
 	background-image: var(--button-to-top);
+	transition: all 0.2s ease-in-out;
 }
 
 #btn-back-to-top:hover {
 	background-image: var(--button-to-top-hover);
 	transform: scale(1.02)
+}
+
+#btn-cart {
+	position: fixed;
+	right: 1vw;
+	top: 16vh;
+	width: 65px;
+	height: 65px;
+	background-color: var(--cart-background);
+	background-size: 65px 65px;
+	background-image: var(--img-cart);
+	border-radius: 65px;
+	transition: all 0.2s ease-in-out;
+}
+
+#btn-cart:hover {
+	background-image: var(--img-cart);
+	transform: scale(1.02)
+}
+
+.div-items-in-cart {
+	position: absolute;
+	background-color: var(--cart-inner); 
+	color: rgb(0, 0, 0);
+	right: 0vw;
+	width: var(--div-items-in-cart-diameter);
+	height: var(--div-items-in-cart-diameter);
+	border-radius: var(--div-items-in-cart-diameter);
+	line-height: var(--div-items-in-cart-diameter);
+}
+
+.overflow {
+	font-size: small;
 }
 
 .bootstrap-row {
@@ -40,6 +82,10 @@
 	background-color: var(--secondary);
 	height: 7.5vh;
 	margin: 0px 3%;
+}
+
+.navbar {
+	transition: all 0.2s ease-in-out;
 }
 
 .nav-pills .nav-link:hover {
@@ -63,7 +109,7 @@
 }
 
 .product-thumbnail-container:hover .product-thumbnail-img {
-	transform: scale(1.1);
+	transform: scale(1.02);
 }
 
 .img-wrapper {
@@ -111,8 +157,12 @@ nav img {
 	margin: 1vh;
 }
 
-@media (max-width: 569px) {
+@media (max-width: 584px) {
 	nav {
 		height: 30vh;
+	}
+
+	#btn-cart {
+		top: 31vh;
 	}
 }
